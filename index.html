@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="PIVOT Kinesiología — Rehabilitación kinésica y entrenamiento personalizado en San Juan. Av. Alem 795 Sur." />
+  <title>PIVOT Kinesiología | San Juan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --bg-elevated: #111111;
+      --text: #ffffff;
+      --text-muted: rgba(255, 255, 255, 0.65);
+      --accent: #00ff88;
+      --accent-dim: rgba(0, 255, 136, 0.12);
+      --border: rgba(255, 255, 255, 0.08);
+      --font-display: "Bebas Neue", sans-serif;
+      --font-body: "DM Sans", system-ui, sans-serif;
+      --header-h: 72px;
+      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+      .hero__pattern {
+        animation: none !important;
+      }
+      .hero__content {
+        animation: none !important;
+      }
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ----- Header ----- */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      height: var(--header-h);
+      display: flex;
+      align-items: center;
+      background: rgba(10, 10, 10, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header__inner {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      line-height: 1;
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      letter-spacing: 0.12em;
+      color: var(--text);
+      font-weight: 400;
+    }
+
+    .logo-tag {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-top: 2px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav__links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: color 0.2s ease;
+    }
+
+    .nav__links a:hover,
+    .nav__links a:focus-visible {
+      color: var(--accent);
+    }
+
+    .nav__toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      border: 1px solid var(--border);
+      background: var(--bg-elevated);
+      border-radius: 8px;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .nav__toggle span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--text);
+      transition: transform 0.25s var(--ease-out), opacity 0.2s;
+    }
+
+    .nav__toggle[aria-expanded="true"] span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .nav__toggle[aria-expanded="true"] span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav__toggle[aria-expanded="true"] span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    @media (max-width: 900px) {
+      .nav__toggle {
+        display: flex;
+      }
+
+      .nav__links {
+        position: fixed;
+        top: var(--header-h);
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 1rem 1.25rem 1.5rem;
+        background: rgba(10, 10, 10, 0.97);
+        border-bottom: 1px solid var(--border);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 0.35s var(--ease-out), opacity 0.25s ease, visibility 0.25s;
+      }
+
+      .nav__links.is-open {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .nav__links li {
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav__links a {
+        display: block;
+        padding: 1rem 0;
+        font-size: 1rem;
+      }
+    }
+
+    /* ----- Sections ----- */
+    .section {
+      padding: 5rem 1.25rem;
+    }
+
+    .section__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section__label {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      margin: 0 0 0.5rem;
+    }
+
+    .section__title {
+      font-family: var(--font-display);
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      letter-spacing: 0.04em;
+      line-height: 1.05;
+      margin: 0 0 1rem;
+    }
+
+    .section__lead {
+      color: var(--text-muted);
+      max-width: 560px;
+      margin: 0 0 2.5rem;
+      font-size: 1.05rem;
+    }
+
+    /* ----- Hero ----- */
+    .hero {
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: calc(var(--header-h) + 2rem) 1.25rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero__pattern {
+      position: absolute;
+      inset: 0;
+      background-color: var(--bg);
+      background-image:
+        repeating-linear-gradient(
+          -35deg,
+          transparent,
+          transparent 47px,
+          rgba(0, 255, 136, 0.04) 47px,
+          rgba(0, 255, 136, 0.04) 48px
+        ),
+        repeating-linear-gradient(
+          55deg,
+          transparent,
+          transparent 47px,
+          rgba(255, 255, 255, 0.02) 47px,
+          rgba(255, 255, 255, 0.02) 48px
+        );
+      animation: patternShift 28s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes patternShift {
+      0% {
+        transform: translate(0, 0);
+      }
+      100% {
+        transform: translate(-48px, 48px);
+      }
+    }
+
+    .hero__gradient {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 20%, rgba(0, 255, 136, 0.08), transparent 55%);
+      pointer-events: none;
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 920px;
+      animation: heroIn 1s var(--ease-out) 0.15s both;
+    }
+
+    @keyframes heroIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(2.75rem, 8vw, 5rem);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      margin: 0 0 1.25rem;
+    }
+
+    .hero__title .accent {
+      color: var(--accent);
+    }
+
+    .hero__sub {
+      color: var(--text-muted);
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      max-width: 540px;
+      margin: 0 auto 2.25rem;
+      line-height: 1.65;
+    }
+
+    .hero__cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.75rem;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: 6px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.25s var(--ease-out), transform 0.2s;
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .btn--primary {
+      background: var(--accent);
+      color: #0a0a0a;
+    }
+
+    .btn--primary:hover {
+      box-shadow: 0 0 32px rgba(0, 255, 136, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .btn--ghost {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .btn--ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ----- Reveal animations ----- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s var(--ease-out), transform 0.65s var(--ease-out);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ----- Services ----- */
+    .services {
+      background: var(--bg-elevated);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem 1.75rem;
+      transition: border-color 0.3s ease, box-shadow 0.35s var(--ease-out), transform 0.3s var(--ease-out);
+    }
+
+    .card:hover {
+      border-color: rgba(0, 255, 136, 0.45);
+      box-shadow: 0 0 40px var(--accent-dim), 0 12px 40px rgba(0, 0, 0, 0.4);
+      transform: translateY(-4px);
+    }
+
+    .card__icon {
+      font-size: 2.25rem;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .card__title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+    }
+
+    .card__text {
+      color: var(--text-muted);
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    /* ----- Obras sociales ----- */
+    .obras-banner {
+      background: linear-gradient(135deg, rgba(0, 255, 136, 0.08), rgba(0, 255, 136, 0.02));
+      border: 1px solid rgba(0, 255, 136, 0.2);
+      border-radius: 12px;
+      padding: 2rem 2rem 2.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .obras-banner p {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 500;
+      max-width: 640px;
+    }
+
+    .insurers {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .insurer-pill {
+      padding: 0.55rem 1.1rem;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .insurer-pill:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ----- Plans ----- */
+    .plans-section {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      align-items: stretch;
+      padding-top: 1.25rem;
+    }
+
+    @media (max-width: 1000px) {
+      .plans-grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin: 0 auto;
+      }
+    }
+
+    .plan-card {
+      position: relative;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem 1.75rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.3s ease, box-shadow 0.35s var(--ease-out), transform 0.3s var(--ease-out);
+    }
+
+    .plan-card:hover {
+      border-color: rgba(0, 255, 136, 0.35);
+      box-shadow: 0 0 36px var(--accent-dim);
+      transform: translateY(-3px);
+    }
+
+    .plan-card--featured {
+      border-color: rgba(0, 255, 136, 0.55);
+      box-shadow: 0 0 48px rgba(0, 255, 136, 0.1);
+    }
+
+    .plan-card__badge {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--accent);
+      color: #0a0a0a;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+    }
+
+    .plan-card__name {
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      letter-spacing: 0.08em;
+      margin: 0 0 0.5rem;
+    }
+
+    .plan-card__pitch {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin: 0 0 1.25rem;
+      min-height: 2.8em;
+    }
+
+    .plan-card__price {
+      font-family: var(--font-display);
+      font-size: 2.75rem;
+      letter-spacing: 0.02em;
+      line-height: 1;
+      color: var(--accent);
+      margin: 0 0 0.25rem;
+    }
+
+    .plan-card__price-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin: 0 0 1.5rem;
+    }
+
+    .plan-card__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex: 1;
+      border-top: 1px solid var(--border);
+      padding-top: 1.25rem;
+    }
+
+    .plan-card__list li {
+      position: relative;
+      padding-left: 1.35rem;
+      margin-bottom: 0.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .plan-card__list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .plan-card__list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.45em;
+      width: 6px;
+      height: 6px;
+      border-radius: 1px;
+      background: var(--accent);
+      box-shadow: 0 0 10px rgba(0, 255, 136, 0.6);
+    }
+
+    .plan-card__cta {
+      margin-top: 1.5rem;
+    }
+
+    .plan-card__cta .btn {
+      width: 100%;
+    }
+
+    .plans-disclaimer {
+      margin: 2rem 0 0;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ----- App ----- */
+    .app-section {
+      background: var(--bg-elevated);
+      border-top: 1px solid var(--border);
+    }
+
+    .app-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .app-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .app-grid .store-btns {
+        justify-content: center;
+      }
+    }
+
+    .store-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.65rem 1.25rem;
+      background: #000;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      transition: border-color 0.2s, color 0.2s, box-shadow 0.25s;
+    }
+
+    .store-btn:hover {
+      border-color: var(--accent);
+      color: var(--text);
+      box-shadow: 0 0 24px var(--accent-dim);
+    }
+
+    .store-btn strong {
+      display: block;
+      color: var(--text);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .phone-mockup {
+      justify-self: end;
+      width: 220px;
+      height: 440px;
+      background: linear-gradient(160deg, #1a1a1a, #0d0d0d);
+      border-radius: 36px;
+      border: 3px solid #2a2a2a;
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+        0 24px 60px rgba(0, 0, 0, 0.6),
+        0 0 80px rgba(0, 255, 136, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .phone-mockup::before {
+      content: "";
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 72px;
+      height: 22px;
+      background: #0a0a0a;
+      border-radius: 12px;
+    }
+
+    .phone-mockup__screen {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      letter-spacing: 0.12em;
+      color: var(--text);
+      text-shadow: 0 0 40px rgba(0, 255, 136, 0.35);
+    }
+
+    .phone-mockup__screen span {
+      color: var(--accent);
+    }
+
+    @media (max-width: 900px) {
+      .phone-mockup {
+        justify-self: center;
+      }
+    }
+
+    /* ----- Team ----- */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .team-grid {
+        grid-template-columns: 1fr;
+        max-width: 360px;
+        margin: 0 auto;
+      }
+    }
+
+    .team-card {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .team-card__avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      margin: 0 auto 1.25rem;
+      background: linear-gradient(145deg, #2a2a2a, #151515);
+      border: 2px solid rgba(0, 255, 136, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      color: var(--accent);
+    }
+
+    .team-card__name {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.35rem;
+    }
+
+    .team-card__role {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      margin: 0;
+    }
+
+    /* ----- Blog ----- */
+    .blog-section {
+      background: var(--bg-elevated);
+      border-top: 1px solid var(--border);
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .blog-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.3s ease, box-shadow 0.35s var(--ease-out), transform 0.3s var(--ease-out);
+    }
+
+    .blog-card:hover {
+      border-color: rgba(0, 255, 136, 0.35);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45), 0 0 32px var(--accent-dim);
+      transform: translateY(-4px);
+    }
+
+    .blog-card__media {
+      height: 140px;
+      background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 50%, rgba(0, 255, 136, 0.08) 100%);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      letter-spacing: 0.2em;
+      color: rgba(255, 255, 255, 0.2);
+    }
+
+    .blog-card__body {
+      padding: 1.5rem 1.5rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .blog-card__meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem 1rem;
+      margin-bottom: 0.75rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    .blog-card__tag {
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .blog-card__title {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      letter-spacing: 0.05em;
+      line-height: 1.2;
+      margin: 0 0 0.65rem;
+    }
+
+    .blog-card__excerpt {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin: 0 0 1.25rem;
+      flex: 1;
+    }
+
+    .blog-card__link {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--accent);
+      align-self: flex-start;
+      transition: opacity 0.2s, gap 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .blog-card__link::after {
+      content: "→";
+      transition: transform 0.25s var(--ease-out);
+    }
+
+    .blog-card__link:hover {
+      opacity: 0.9;
+    }
+
+    .blog-card__link:hover::after {
+      transform: translateX(4px);
+    }
+
+    .blog-note {
+      margin: 2rem 0 0;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .blog-note a {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* ----- Contact / Map ----- */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 2rem;
+      align-items: stretch;
+    }
+
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .contact-box {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+
+    .contact-box h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      letter-spacing: 0.06em;
+      margin: 0 0 1rem;
+    }
+
+    .contact-box p,
+    .contact-box address {
+      color: var(--text-muted);
+      font-style: normal;
+      margin: 0 0 1.25rem;
+      font-size: 0.95rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .contact-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: opacity 0.2s;
+    }
+
+    .contact-links a:hover {
+      opacity: 0.85;
+    }
+
+    .map-wrap {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      min-height: 320px;
+      background: #111;
+    }
+
+    .map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 320px;
+      border: 0;
+      display: block;
+    }
+
+    /* ----- Footer ----- */
+    .footer {
+      padding: 3rem 1.25rem 2rem;
+      border-top: 1px solid var(--border);
+      background: #050505;
+    }
+
+    .footer__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 2fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    @media (max-width: 700px) {
+      .footer__inner {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .footer__logo {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      letter-spacing: 0.12em;
+      margin: 0;
+    }
+
+    .footer__brand-accent {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0.35rem 0 0.75rem;
+    }
+
+    .footer__tagline {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin: 0;
+      max-width: 280px;
+    }
+
+    .footer__nav {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .footer__nav a {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    .footer__nav a:hover {
+      color: var(--accent);
+    }
+
+    .footer__bottom {
+      max-width: 1200px;
+      margin: 2.5rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    /* ----- WhatsApp float ----- */
+    .wa-float-wrap {
+      position: fixed;
+      bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
+      right: calc(1.25rem + env(safe-area-inset-right, 0px));
+      z-index: 1001;
+    }
+
+    .wa-float {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      min-height: 56px;
+      padding: 0.65rem 1rem 0.65rem 0.75rem;
+      border-radius: 999px;
+      background: #25d366;
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      box-shadow:
+        0 4px 24px rgba(37, 211, 102, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.12) inset;
+      transition: transform 0.25s var(--ease-out), box-shadow 0.25s;
+    }
+
+    .wa-float::after {
+      content: "";
+      position: absolute;
+      inset: -4px;
+      border-radius: inherit;
+      border: 2px solid rgba(37, 211, 102, 0.45);
+      animation: waPulse 2.4s ease-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes waPulse {
+      0% {
+        transform: scale(1);
+        opacity: 0.9;
+      }
+      70% {
+        transform: scale(1.12);
+        opacity: 0;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .wa-float::after {
+        animation: none;
+      }
+    }
+
+    .wa-float:hover {
+      transform: scale(1.04);
+      box-shadow:
+        0 8px 36px rgba(37, 211, 102, 0.6),
+        0 0 0 1px rgba(255, 255, 255, 0.15) inset;
+    }
+
+    .wa-float:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .wa-float svg {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+    }
+
+    .wa-float__label {
+      padding-right: 0.15rem;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 480px) {
+      .wa-float__label {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .wa-float {
+        width: 58px;
+        height: 58px;
+        min-height: 58px;
+        padding: 0;
+        border-radius: 50%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header__inner">
+      <a href="#inicio" class="logo-wrap" aria-label="PIVOT Kinesiología — Inicio">
+        <span class="logo">PIVOT</span>
+        <span class="logo-tag">Kinesiología</span>
+      </a>
+      <nav class="nav" aria-label="Principal">
+        <button type="button" class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" id="nav-toggle" aria-label="Abrir menú">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav__links" id="nav-menu">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#planes">Planes</a></li>
+          <li><a href="#obras-sociales">Obras sociales</a></li>
+          <li><a href="#app">App</a></li>
+          <li><a href="#equipo">Equipo</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <div class="hero__pattern" aria-hidden="true"></div>
+      <div class="hero__gradient" aria-hidden="true"></div>
+      <div class="hero__content">
+        <h1 class="hero__title">
+          Tu recuperación.<br />
+          Tu rendimiento.<br />
+          Tu <span class="accent">PIVOT.</span>
+        </h1>
+        <p class="hero__sub">
+          Kinesiología y entrenamiento personalizado en la provincia de San Juan. Protocolos basados en evidencia, seguimiento cercano y foco en tu movimiento funcional y tu rendimiento deportivo.
+        </p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="https://wa.me/5492610000000" target="_blank" rel="noopener noreferrer">Contactanos</a>
+          <a class="btn btn--ghost" href="#app">Conocé la App</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios" class="section services">
+      <div class="section__inner">
+        <p class="section__label reveal">SERVICIOS</p>
+        <h2 class="section__title reveal">Lo que hacemos</h2>
+        <p class="section__lead reveal">
+          Rehabilitación kinésica, preparación física y entrenamiento adaptado con criterio clínico y deportivo.
+        </p>
+        <div class="cards">
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">🏥</div>
+            <h3 class="card__title">Rehabilitación Kinésica</h3>
+            <p class="card__text">
+              Valoración funcional, tratamiento de lesiones y reintroducción progresiva a la actividad con objetivos medibles.
+            </p>
+          </article>
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">💪</div>
+            <h3 class="card__title">Entrenamiento Personalizado</h3>
+            <p class="card__text">
+              Planificación individual según tu historia, tus metas y tu disponibilidad. Seguimiento y ajustes continuos.
+            </p>
+          </article>
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">🧠</div>
+            <h3 class="card__title">Adaptado a Patologías y Lesiones</h3>
+            <p class="card__text">
+              Entrenamiento seguro para condiciones crónicas y post-lesión: cargas controladas y progresión responsable.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="planes" class="section plans-section">
+      <div class="section__inner">
+        <p class="section__label reveal">PROPUESTAS</p>
+        <h2 class="section__title reveal">Planes</h2>
+        <p class="section__lead reveal">
+          Tres niveles de acompañamiento según tus objetivos, frecuencia de sesiones y seguimiento. Elegí el que mejor se adapte a tu etapa.
+        </p>
+        <div class="plans-grid">
+          <article class="plan-card reveal">
+            <h3 class="plan-card__name">Plan Esencial</h3>
+            <p class="plan-card__pitch">Base para iniciar tratamiento o mantenimiento con foco en lo prioritario.</p>
+            <p class="plan-card__price">$42.000</p>
+            <p class="plan-card__price-note">por mes · valor referencial</p>
+            <ul class="plan-card__list">
+              <li>4 sesiones kinésicas al mes</li>
+              <li>Evaluación inicial y plan básico</li>
+              <li>Seguimiento por mensaje (respuesta en horario de consulta)</li>
+              <li>Ideal para control puntual o mantenimiento</li>
+            </ul>
+            <div class="plan-card__cta">
+              <a class="btn btn--ghost" href="https://wa.me/5492610000000?text=Hola%2C%20quiero%20info%20sobre%20el%20Plan%20Esencial" target="_blank" rel="noopener noreferrer">Consultar este plan</a>
+            </div>
+          </article>
+
+          <article class="plan-card plan-card--featured reveal">
+            <span class="plan-card__badge">Recomendado</span>
+            <h3 class="plan-card__name">Plan Performance</h3>
+            <p class="plan-card__pitch">Mayor frecuencia y seguimiento para recuperación o preparación deportiva.</p>
+            <p class="plan-card__price">$68.000</p>
+            <p class="plan-card__price-note">por mes · valor referencial</p>
+            <ul class="plan-card__list">
+              <li>8 sesiones al mes (kinésicas y/o entrenamiento)</li>
+              <li>Plan personalizado con reprogramación mensual</li>
+              <li>Acceso a material y pautas en App Pivot</li>
+              <li>Prioridad para reprogramar turnos</li>
+            </ul>
+            <div class="plan-card__cta">
+              <a class="btn btn--primary" href="https://wa.me/5492610000000?text=Hola%2C%20quiero%20info%20sobre%20el%20Plan%20Performance" target="_blank" rel="noopener noreferrer">Consultar este plan</a>
+            </div>
+          </article>
+
+          <article class="plan-card reveal">
+            <h3 class="plan-card__name">Plan Integral</h3>
+            <p class="plan-card__pitch">Acompañamiento completo: rehabilitación, entrenamiento y educación continuos.</p>
+            <p class="plan-card__price">$95.000</p>
+            <p class="plan-card__price-note">por mes · valor referencial</p>
+            <ul class="plan-card__list">
+              <li>12 sesiones al mes combinadas según indicación</li>
+              <li>Seguimiento estrecho y ajustes semanales</li>
+              <li>Coordinación con objetivos deportivos o laborales</li>
+              <li>Incluye contenido educativo y revisión de progreso</li>
+            </ul>
+            <div class="plan-card__cta">
+              <a class="btn btn--ghost" href="https://wa.me/5492610000000?text=Hola%2C%20quiero%20info%20sobre%20el%20Plan%20Integral" target="_blank" rel="noopener noreferrer">Consultar este plan</a>
+            </div>
+          </article>
+        </div>
+        <p class="plans-disclaimer reveal">
+          Los valores son orientativos y pueden variar según cobertura de obra social, tipo de sesión y evaluación profesional. Consultanos por promociones y formas de pago.
+        </p>
+      </div>
+    </section>
+
+    <section id="obras-sociales" class="section">
+      <div class="section__inner">
+        <p class="section__label reveal">COBERTURA</p>
+        <h2 class="section__title reveal">Obras sociales</h2>
+        <p class="section__lead reveal">
+          Trabajamos con obras sociales para rehabilitación kinésica. Consultanos por tu cobertura y requisitos.
+        </p>
+        <div class="obras-banner reveal">
+          <p>Trabajamos con obras sociales para rehabilitación kinésica.</p>
+        </div>
+        <div class="insurers reveal" role="list">
+          <span class="insurer-pill" role="listitem">OSDE</span>
+          <span class="insurer-pill" role="listitem">Swiss Medical</span>
+          <span class="insurer-pill" role="listitem">Galeno</span>
+          <span class="insurer-pill" role="listitem">PAMI</span>
+          <span class="insurer-pill" role="listitem">OSPE</span>
+          <span class="insurer-pill" role="listitem">OSDEPYM</span>
+          <span class="insurer-pill" role="listitem">Medifé</span>
+          <span class="insurer-pill" role="listitem">Sancor Salud</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="app" class="section app-section">
+      <div class="section__inner">
+        <p class="section__label reveal">TECNOLOGÍA</p>
+        <div class="app-grid">
+          <div class="reveal">
+            <h2 class="section__title" style="margin-bottom: 1rem;">App Pivot</h2>
+            <p style="color: var(--text-muted); margin: 0 0 1.75rem; font-size: 1.05rem; line-height: 1.65;">
+              Descargá la App Pivot — Planes de entrenamiento personalizados en tu celular. Seguimiento, rutinas y comunicación con tu equipo en un solo lugar.
+            </p>
+            <div class="store-btns">
+              <a href="#" class="store-btn" aria-label="Descargar en App Store (próximamente)">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                <span>Descargar en<br /><strong>App Store</strong></span>
+              </a>
+              <a href="#" class="store-btn" aria-label="Descargar en Google Play (próximamente)">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 20.5v-17c0-.59.34-1.11.84-1.35L13.69 12 3.84 21.85c-.5-.25-.84-.77-.84-1.35zm13.81-5.38L6.05 21.34l8.61-8.61 2.15 2.39zm3.35-4.17-2.75 1.59L14.08 12l2.33 2.33 2.75 1.59c1.03-.59 1.03-2.25 0-2.84zM6.05 2.66l10.76 6.22-2.15 2.39L6.05 2.66z"/></svg>
+                <span>Disponible en<br /><strong>Google Play</strong></span>
+              </a>
+            </div>
+          </div>
+          <div class="phone-mockup reveal" aria-hidden="true">
+            <div class="phone-mockup__screen">PIV<span>OT</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="equipo" class="section">
+      <div class="section__inner">
+        <p class="section__label reveal">EQUIPO</p>
+        <h2 class="section__title reveal">Profesionales</h2>
+        <p class="section__lead reveal">
+          Nuestro equipo de kinesiólogos y entrenadores certificados. Experiencia en rehabilitación deportiva y acondicionamiento físico.
+        </p>
+        <div class="team-grid">
+          <article class="team-card reveal">
+            <div class="team-card__avatar" aria-hidden="true">PK</div>
+            <h3 class="team-card__name">Prof. a cargo</h3>
+            <p class="team-card__role">Kinesiología · Rehabilitación deportiva</p>
+          </article>
+          <article class="team-card reveal">
+            <div class="team-card__avatar" aria-hidden="true">EP</div>
+            <h3 class="team-card__name">Entrenamiento</h3>
+            <p class="team-card__role">Preparación física · Planificación</p>
+          </article>
+          <article class="team-card reveal">
+            <div class="team-card__avatar" aria-hidden="true">+</div>
+            <h3 class="team-card__name">Equipo clínico</h3>
+            <p class="team-card__role">Seguimiento integral · Educación al paciente</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="blog" class="section blog-section">
+      <div class="section__inner">
+        <p class="section__label reveal">RECURSOS</p>
+        <h2 class="section__title reveal">Blog</h2>
+        <p class="section__lead reveal">
+          Artículos breves sobre rehabilitación, entrenamiento y hábitos para acompañar tu proceso en PIVOT.
+        </p>
+        <div class="blog-grid">
+          <article class="blog-card reveal">
+            <div class="blog-card__media" aria-hidden="true">PIVOT</div>
+            <div class="blog-card__body">
+              <div class="blog-card__meta">
+                <span class="blog-card__tag">Rehabilitación</span>
+                <time datetime="2026-03-02">2 mar 2026</time>
+              </div>
+              <h3 class="blog-card__title">Volver a correr tras una lesión: qué tener en cuenta</h3>
+              <p class="blog-card__excerpt">
+                Progresión de carga, señales de alarma y cómo coordinar kinésica con tu plan de entrenamiento.
+              </p>
+              <a class="blog-card__link" href="https://instagram.com/pivot.kine" target="_blank" rel="noopener noreferrer">Leer en Instagram</a>
+            </div>
+          </article>
+          <article class="blog-card reveal">
+            <div class="blog-card__media" aria-hidden="true">PIVOT</div>
+            <div class="blog-card__body">
+              <div class="blog-card__meta">
+                <span class="blog-card__tag">Entrenamiento</span>
+                <time datetime="2026-02-18">18 feb 2026</time>
+              </div>
+              <h3 class="blog-card__title">Fuerza y movilidad: por qué no son opuestos</h3>
+              <p class="blog-card__excerpt">
+                Cómo integrar rango articular y trabajo de fuerza sin perder rendimiento ni seguridad.
+              </p>
+              <a class="blog-card__link" href="https://instagram.com/pivot.kine" target="_blank" rel="noopener noreferrer">Leer en Instagram</a>
+            </div>
+          </article>
+          <article class="blog-card reveal">
+            <div class="blog-card__media" aria-hidden="true">PIVOT</div>
+            <div class="blog-card__body">
+              <div class="blog-card__meta">
+                <span class="blog-card__tag">Salud</span>
+                <time datetime="2026-02-05">5 feb 2026</time>
+              </div>
+              <h3 class="blog-card__title">Patologías crónicas y actividad física supervisada</h3>
+              <p class="blog-card__excerpt">
+                Beneficios del entrenamiento adaptado y el rol del equipo interdisciplinario.
+              </p>
+              <a class="blog-card__link" href="https://instagram.com/pivot.kine" target="_blank" rel="noopener noreferrer">Leer en Instagram</a>
+            </div>
+          </article>
+        </div>
+        <p class="blog-note reveal">
+          Pronto sumaremos notas completas en la web. Mientras tanto, seguinos en <a href="https://instagram.com/pivot.kine" target="_blank" rel="noopener noreferrer">@pivot.kine</a> para tips y novedades.
+        </p>
+      </div>
+    </section>
+
+    <section id="contacto" class="section services">
+      <div class="section__inner">
+        <p class="section__label reveal">UBICACIÓN</p>
+        <h2 class="section__title reveal">Contacto</h2>
+        <p class="section__lead reveal">
+          Escribinos por Instagram o WhatsApp. Av. Alem 795 Sur, San Juan.
+        </p>
+        <div class="contact-grid">
+          <div class="contact-box reveal">
+            <h3>Datos</h3>
+            <address>
+              Av. Alem 795 Sur<br />
+              San Juan, Argentina
+            </address>
+            <p style="margin-bottom: 0.75rem;">Consultas y turnos:</p>
+            <div class="contact-links">
+              <a href="https://instagram.com/pivot.kine" target="_blank" rel="noopener noreferrer">Instagram @pivot.kine</a>
+              <a href="https://wa.me/5492610000000" target="_blank" rel="noopener noreferrer">WhatsApp +54 9 261 000-0000</a>
+            </div>
+          </div>
+          <div class="map-wrap reveal">
+            <iframe
+              title="Ubicación Pivot Kinesiología — Av. Alem 795 Sur, San Juan"
+              src="https://www.google.com/maps?q=Av.+Alem+795+Sur,+San+Juan,+Argentina&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <p class="footer__logo">PIVOT</p>
+        <p class="footer__brand-accent">Kinesiología</p>
+        <p class="footer__tagline">Kinesiología y entrenamiento personalizado. San Juan, Argentina.</p>
+      </div>
+      <ul class="footer__nav">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#planes">Planes</a></li>
+        <li><a href="#obras-sociales">Obras sociales</a></li>
+        <li><a href="#app">App Pivot</a></li>
+        <li><a href="#equipo">Equipo</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+    <p class="footer__bottom">© 2026 Pivot Kinesiología — San Juan, Argentina</p>
+  </footer>
+
+  <div class="wa-float-wrap">
+    <a
+      class="wa-float"
+      href="https://wa.me/5492610000000"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Contactar por WhatsApp"
+    >
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.172.198-.297.298-.495.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span class="wa-float__label">WhatsApp</span>
+    </a>
+  </div>
+
+  <script>
+    (function () {
+      var toggle = document.getElementById("nav-toggle");
+      var menu = document.getElementById("nav-menu");
+      var links = menu.querySelectorAll("a");
+
+      function closeMenu() {
+        toggle.setAttribute("aria-expanded", "false");
+        menu.classList.remove("is-open");
+      }
+
+      toggle.addEventListener("click", function () {
+        var open = toggle.getAttribute("aria-expanded") === "true";
+        toggle.setAttribute("aria-expanded", open ? "false" : "true");
+        menu.classList.toggle("is-open", !open);
+      });
+
+      links.forEach(function (a) {
+        a.addEventListener("click", function () {
+          if (window.matchMedia("(max-width: 900px)").matches) closeMenu();
+        });
+      });
+
+      var observer = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+            }
+          });
+        },
+        { root: null, rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+      );
+
+      document.querySelectorAll(".reveal").forEach(function (el) {
+        observer.observe(el);
+      });
+    })();
+  </script>
+</body>
+</html>
