@@ -14,8 +14,9 @@
       --bg-elevated: #111111;
       --text: #ffffff;
       --text-muted: rgba(255, 255, 255, 0.65);
-      --accent: #00ff88;
-      --accent-dim: rgba(0, 255, 136, 0.12);
+      /* Marca: negro + blanco + rojo */
+      --accent: #dc2626;
+      --accent-dim: rgba(220, 38, 38, 0.14);
       --border: rgba(255, 255, 255, 0.08);
       --font-display: "Bebas Neue", sans-serif;
       --font-body: "DM Sans", system-ui, sans-serif;
@@ -278,8 +279,8 @@
           -35deg,
           transparent,
           transparent 47px,
-          rgba(0, 255, 136, 0.04) 47px,
-          rgba(0, 255, 136, 0.04) 48px
+          rgba(220, 38, 38, 0.04) 47px,
+          rgba(220, 38, 38, 0.04) 48px
         ),
         repeating-linear-gradient(
           55deg,
@@ -304,7 +305,7 @@
     .hero__gradient {
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 80% 60% at 50% 20%, rgba(0, 255, 136, 0.08), transparent 55%);
+      background: radial-gradient(ellipse 80% 60% at 50% 20%, rgba(220, 38, 38, 0.08), transparent 55%);
       pointer-events: none;
     }
 
@@ -376,11 +377,11 @@
 
     .btn--primary {
       background: var(--accent);
-      color: #0a0a0a;
+      color: #ffffff;
     }
 
     .btn--primary:hover {
-      box-shadow: 0 0 32px rgba(0, 255, 136, 0.45);
+      box-shadow: 0 0 32px rgba(220, 38, 38, 0.45);
       transform: translateY(-2px);
     }
 
@@ -435,7 +436,7 @@
     }
 
     .card:hover {
-      border-color: rgba(0, 255, 136, 0.45);
+      border-color: rgba(220, 38, 38, 0.45);
       box-shadow: 0 0 40px var(--accent-dim), 0 12px 40px rgba(0, 0, 0, 0.4);
       transform: translateY(-4px);
     }
@@ -462,8 +463,8 @@
 
     /* ----- Obras sociales ----- */
     .obras-banner {
-      background: linear-gradient(135deg, rgba(0, 255, 136, 0.08), rgba(0, 255, 136, 0.02));
-      border: 1px solid rgba(0, 255, 136, 0.2);
+      background: linear-gradient(135deg, rgba(220, 38, 38, 0.08), rgba(220, 38, 38, 0.02));
+      border: 1px solid rgba(220, 38, 38, 0.2);
       border-radius: 12px;
       padding: 2rem 2rem 2.25rem;
       margin-bottom: 2rem;
@@ -536,14 +537,14 @@
     }
 
     .plan-card:hover {
-      border-color: rgba(0, 255, 136, 0.35);
+      border-color: rgba(220, 38, 38, 0.35);
       box-shadow: 0 0 36px var(--accent-dim);
       transform: translateY(-3px);
     }
 
     .plan-card--featured {
-      border-color: rgba(0, 255, 136, 0.55);
-      box-shadow: 0 0 48px rgba(0, 255, 136, 0.1);
+      border-color: rgba(220, 38, 38, 0.55);
+      box-shadow: 0 0 48px rgba(220, 38, 38, 0.1);
     }
 
     .plan-card__badge {
@@ -552,7 +553,7 @@
       left: 50%;
       transform: translate(-50%, -50%);
       background: var(--accent);
-      color: #0a0a0a;
+      color: #ffffff;
       font-size: 0.65rem;
       font-weight: 700;
       letter-spacing: 0.14em;
@@ -621,7 +622,7 @@
       height: 6px;
       border-radius: 1px;
       background: var(--accent);
-      box-shadow: 0 0 10px rgba(0, 255, 136, 0.6);
+      box-shadow: 0 0 10px rgba(220, 38, 38, 0.6);
     }
 
     .plan-card__cta {
@@ -708,7 +709,7 @@
       box-shadow:
         0 0 0 1px rgba(255, 255, 255, 0.06) inset,
         0 24px 60px rgba(0, 0, 0, 0.6),
-        0 0 80px rgba(0, 255, 136, 0.12);
+        0 0 80px rgba(220, 38, 38, 0.12);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -732,7 +733,7 @@
       font-size: 2.5rem;
       letter-spacing: 0.12em;
       color: var(--text);
-      text-shadow: 0 0 40px rgba(0, 255, 136, 0.35);
+      text-shadow: 0 0 40px rgba(220, 38, 38, 0.35);
     }
 
     .phone-mockup__screen span {
@@ -774,7 +775,7 @@
       border-radius: 50%;
       margin: 0 auto 1.25rem;
       background: linear-gradient(145deg, #2a2a2a, #151515);
-      border: 2px solid rgba(0, 255, 136, 0.25);
+      border: 2px solid rgba(220, 38, 38, 0.25);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -825,14 +826,14 @@
     }
 
     .blog-card:hover {
-      border-color: rgba(0, 255, 136, 0.35);
+      border-color: rgba(220, 38, 38, 0.35);
       box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45), 0 0 32px var(--accent-dim);
       transform: translateY(-4px);
     }
 
     .blog-card__media {
       height: 140px;
-      background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 50%, rgba(0, 255, 136, 0.08) 100%);
+      background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 50%, rgba(220, 38, 38, 0.08) 100%);
       border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
