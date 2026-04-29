@@ -756,7 +756,7 @@
     /* ----- Team ----- */
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1.5rem;
     }
 
@@ -801,7 +801,55 @@
     .team-card__role {
       color: var(--text-muted);
       font-size: 0.875rem;
+      margin: 0 0 1.1rem;
+    }
+
+    .team-services {
+      list-style: none;
       margin: 0;
+      padding: 0;
+      text-align: left;
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .team-services li {
+      padding: 0.7rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #0e0e0e;
+    }
+
+    .team-service__head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .team-service__badge {
+      display: inline-block;
+      padding: 0.16rem 0.5rem;
+      border-radius: 999px;
+      font-size: 0.68rem;
+      color: var(--accent);
+      border: 1px solid rgba(220, 38, 38, 0.4);
+      background: rgba(220, 38, 38, 0.12);
+      white-space: nowrap;
+    }
+
+    .team-service__book {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      transition: color 0.2s ease;
+    }
+
+    .team-service__book:hover,
+    .team-service__book:focus-visible {
+      color: var(--accent);
     }
 
     /* ----- Blog ----- */
@@ -845,6 +893,21 @@
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    .blog-card__media--video {
+      height: auto;
+      padding: 0;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .blog-card__media--video iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
     }
 
     .blog-card__logo {
@@ -1307,7 +1370,7 @@
           </article>
 
           <article class="plan-card reveal">
-            <h3 class="plan-card__name">Plan Integral</h3>
+            <h3 class="plan-card__name">Plan Salud Extrema</h3>
             <p class="plan-card__pitch">Acompañamiento completo: rehabilitación, entrenamiento y educación continuos.</p>
             <p class="plan-card__price">$95.000</p>
             <p class="plan-card__price-note">por mes · valor referencial</p>
@@ -1339,14 +1402,61 @@
           <p>Trabajamos con obras sociales para rehabilitación kinésica.</p>
         </div>
         <div class="insurers reveal" role="list">
-          <span class="insurer-pill" role="listitem">OSDE</span>
-          <span class="insurer-pill" role="listitem">Swiss Medical</span>
-          <span class="insurer-pill" role="listitem">Galeno</span>
-          <span class="insurer-pill" role="listitem">PAMI</span>
-          <span class="insurer-pill" role="listitem">OSPE</span>
+          <span class="insurer-pill" role="listitem">ALL SALUD</span>
+          <span class="insurer-pill" role="listitem">AMFFA</span>
+          <span class="insurer-pill" role="listitem">APSOT- FSST</span>
+          <span class="insurer-pill" role="listitem">AVALIAN</span>
+          <span class="insurer-pill" role="listitem">AVERA</span>
+          <span class="insurer-pill" role="listitem">BRINDAR SALUD</span>
+          <span class="insurer-pill" role="listitem">COLMED</span>
+          <span class="insurer-pill" role="listitem">CONEXIÓN SALUD</span>
+          <span class="insurer-pill" role="listitem">DAMSU</span>
+          <span class="insurer-pill" role="listitem">FEDERADA SALUD</span>
+          <span class="insurer-pill" role="listitem">GALENO</span>
+          <span class="insurer-pill" role="listitem">GRUPO ROISA</span>
+          <span class="insurer-pill" role="listitem">HIGEA SALUD</span>
+          <span class="insurer-pill" role="listitem">OSFA</span>
+          <span class="insurer-pill" role="listitem">ITER MEDICINA</span>
+          <span class="insurer-pill" role="listitem">JERARQUICOS</span>
+          <span class="insurer-pill" role="listitem">LEAL MEDICINA</span>
+          <span class="insurer-pill" role="listitem">LUIS PASTEUR</span>
+          <span class="insurer-pill" role="listitem">MEDICUS</span>
+          <span class="insurer-pill" role="listitem">NOBIS O.P.I.S</span>
+          <span class="insurer-pill" role="listitem">POLICIA FEDERAL</span>
+          <span class="insurer-pill" role="listitem">PERSONAL DE FARMACIA</span>
+          <span class="insurer-pill" role="listitem">O.S.D.I.P.P</span>
+          <span class="insurer-pill" role="listitem">O.S.F.Y.H.C</span>
+          <span class="insurer-pill" role="listitem">O.S.P FARMACIA</span>
+          <span class="insurer-pill" role="listitem">O.S.P.A.T.C.A</span>
+          <span class="insurer-pill" role="listitem">O.S.P.E</span>
+          <span class="insurer-pill" role="listitem">O.S.P.I.P</span>
+          <span class="insurer-pill" role="listitem">OS DEL SEGURO</span>
+          <span class="insurer-pill" role="listitem">OMINT</span>
+          <span class="insurer-pill" role="listitem">OPDEA</span>
+          <span class="insurer-pill" role="listitem">OSAPM</span>
           <span class="insurer-pill" role="listitem">OSDEPYM</span>
-          <span class="insurer-pill" role="listitem">Medifé</span>
-          <span class="insurer-pill" role="listitem">Sancor Salud</span>
+          <span class="insurer-pill" role="listitem">OSMATA</span>
+          <span class="insurer-pill" role="listitem">OSPEDYC</span>
+          <span class="insurer-pill" role="listitem">OSPERHYRA</span>
+          <span class="insurer-pill" role="listitem">OSPIDA</span>
+          <span class="insurer-pill" role="listitem">OSPTV</span>
+          <span class="insurer-pill" role="listitem">OSSACRA</span>
+          <span class="insurer-pill" role="listitem">PODER JUDICIAL</span>
+          <span class="insurer-pill" role="listitem">PREVENCION</span>
+          <span class="insurer-pill" role="listitem">PROVINCIA</span>
+          <span class="insurer-pill" role="listitem">RED DE SEG MEDICO</span>
+          <span class="insurer-pill" role="listitem">RED MEDICA</span>
+          <span class="insurer-pill" role="listitem">RED SOM</span>
+          <span class="insurer-pill" role="listitem">SALUD PLENA</span>
+          <span class="insurer-pill" role="listitem">SAN PEDRO</span>
+          <span class="insurer-pill" role="listitem">SANCOR SALUD</span>
+          <span class="insurer-pill" role="listitem">SCIS</span>
+          <span class="insurer-pill" role="listitem">SMAI</span>
+          <span class="insurer-pill" role="listitem">TV SALUD</span>
+          <span class="insurer-pill" role="listitem">UNIMED</span>
+          <span class="insurer-pill" role="listitem">UP</span>
+          <span class="insurer-pill" role="listitem">UTEPLIM SALUD</span>
+          <span class="insurer-pill" role="listitem">VENDEDORES DE DIARIO</span>
         </div>
       </div>
     </section>
@@ -1358,7 +1468,7 @@
           <div class="reveal">
             <h2 class="section__title" style="margin-bottom: 1rem;">App Pivot</h2>
             <p style="color: var(--text-muted); margin: 0 0 1.75rem; font-size: 1.05rem; line-height: 1.65;">
-              Descargá la App Pivot — Planes de entrenamiento personalizados en tu celular. Seguimiento, rutinas y comunicación con tu equipo en un solo lugar.
+              Gestioná todos tus turnos desde la app.
             </p>
             <div class="store-btns">
               <a href="#" class="store-btn" aria-label="Descargar en App Store (próximamente)">
@@ -1383,25 +1493,86 @@
     <section id="equipo" class="section">
       <div class="section__inner">
         <p class="section__label reveal">EQUIPO</p>
-        <h2 class="section__title reveal">Profesionales</h2>
+        <h2 class="section__title reveal">Kinesiología integral y rehabilitación deportiva</h2>
         <p class="section__lead reveal">
-          Nuestro equipo de kinesiólogos y entrenadores certificados. Experiencia en rehabilitación deportiva y acondicionamiento físico.
+          Elegí un profesional, tocá el servicio que necesitás y reservá en segundos.
         </p>
         <div class="team-grid">
           <article class="team-card reveal">
-            <div class="team-card__avatar" aria-hidden="true">PK</div>
-            <h3 class="team-card__name">Prof. a cargo</h3>
-            <p class="team-card__role">Kinesiología · Rehabilitación deportiva</p>
+            <div class="team-card__avatar" aria-hidden="true">LL</div>
+            <h3 class="team-card__name">Lic. Lucas Felix</h3>
+            <p class="team-card__role">Rehabilitación deportiva, fisioterapia y terapia manual</p>
+            <ul class="team-services">
+              <li>
+                <div class="team-service__head">Rehabilitación kinésica</div>
+                <a class="team-service__book" href="https://wa.me/5492644752590?text=Hola%2C%20quiero%20reservar%20Rehabilitaci%C3%B3n%20kin%C3%A9sica%20con%20Lic.%20Lucas%20Felix" target="_blank" rel="noopener noreferrer">Reservar ›</a>
+              </li>
+              <li>
+                <div class="team-service__head">Ejercicio adaptado a patología <span class="team-service__badge">Requiere suscripción</span></div>
+                <a class="team-service__book" href="https://wa.me/5492644752590?text=Hola%2C%20quiero%20reservar%20Ejercicio%20adaptado%20a%20patolog%C3%ADa%20con%20Lic.%20Lucas%20Felix" target="_blank" rel="noopener noreferrer">Reservar ›</a>
+              </li>
+              <li>
+                <div class="team-service__head">Entrenamiento personalizado <span class="team-service__badge">Requiere suscripción</span></div>
+                <a class="team-service__book" href="https://wa.me/5492644752590?text=Hola%2C%20quiero%20reservar%20Entrenamiento%20personalizado%20con%20Lic.%20Lucas%20Felix" target="_blank" rel="noopener noreferrer">Reservar ›</a>
+              </li>
+            </ul>
           </article>
           <article class="team-card reveal">
-            <div class="team-card__avatar" aria-hidden="true">EP</div>
-            <h3 class="team-card__name">Entrenamiento</h3>
-            <p class="team-card__role">Preparación física · Planificación</p>
+            <div class="team-card__avatar" aria-hidden="true">LG</div>
+            <h3 class="team-card__name">Lic. Guadalupe Oieni</h3>
+            <p class="team-card__role">Rehabilitación deportiva, ejercicio terapéutico y masajes</p>
+            <ul class="team-services">
+              <li>
+                <div class="team-service__head">Rehabilitación kinésica</div>
+                <a class="team-service__book" href="https://wa.me/5492644752590?text=Hola%2C%20quiero%20reservar%20Rehabilitaci%C3%B3n%20kin%C3%A9sica%20con%20Lic.%20Guadalupe%20Oieni" target="_blank" rel="noopener noreferrer">Reservar ›</a>
+              </li>
+              <li>
+                <div class="team-service__head">Masaje</div>
+                <a class="team-service__book" href="https://wa.me/5492644752590?text=Hola%2C%20quiero%20reservar%20Masaje%20con%20Lic.%20Guadalupe%20Oieni" target="_blank" rel="noopener noreferrer">Reservar ›</a>
+              </li>
+              <li>
+                <div class="team-service__head">Ejercicio adaptado a patología <span class="team-service__badge">Requiere suscripción</span></div>
+                <a class="team-service__book" href="https://wa.me/5492644752590?text=Hola%2C%20quiero%20reservar%20Ejercicio%20adaptado%20a%20patolog%C3%ADa%20con%20Lic.%20Guadalupe%20Oieni" target="_blank" rel="noopener noreferrer">Reservar ›</a>
+              </li>
+              <li>
+                <div class="team-service__head">Entrenamiento personalizado <span class="team-service__badge">Requiere suscripción</span></div>
+                <a class="team-service__book" href="https://wa.me/5492644752590?text=Hola%2C%20quiero%20reservar%20Entrenamiento%20personalizado%20con%20Lic.%20Guadalupe%20Oieni" target="_blank" rel="noopener noreferrer">Reservar ›</a>
+              </li>
+            </ul>
           </article>
           <article class="team-card reveal">
-            <div class="team-card__avatar" aria-hidden="true">+</div>
-            <h3 class="team-card__name">Equipo clínico</h3>
-            <p class="team-card__role">Seguimiento integral · Educación al paciente</p>
+            <div class="team-card__avatar" aria-hidden="true">LM</div>
+            <h3 class="team-card__name">Lic. Matias Frola</h3>
+            <p class="team-card__role">Rehabilitación integral y neurorehabilitación</p>
+            <ul class="team-services">
+              <li>
+                <div class="team-service__head">Rehabilitación kinésica</div>
+                <a class="team-service__book" href="https://wa.me/5492644752590?text=Hola%2C%20quiero%20reservar%20Rehabilitaci%C3%B3n%20kin%C3%A9sica%20con%20Lic.%20Matias%20Frola" target="_blank" rel="noopener noreferrer">Reservar ›</a>
+              </li>
+              <li>
+                <div class="team-service__head">Ejercicio adaptado a patología <span class="team-service__badge">Requiere suscripción</span></div>
+                <a class="team-service__book" href="https://wa.me/5492644752590?text=Hola%2C%20quiero%20reservar%20Ejercicio%20adaptado%20a%20patolog%C3%ADa%20con%20Lic.%20Matias%20Frola" target="_blank" rel="noopener noreferrer">Reservar ›</a>
+              </li>
+              <li>
+                <div class="team-service__head">Entrenamiento personalizado <span class="team-service__badge">Requiere suscripción</span></div>
+                <a class="team-service__book" href="https://wa.me/5492644752590?text=Hola%2C%20quiero%20reservar%20Entrenamiento%20personalizado%20con%20Lic.%20Matias%20Frola" target="_blank" rel="noopener noreferrer">Reservar ›</a>
+              </li>
+            </ul>
+          </article>
+          <article class="team-card reveal">
+            <div class="team-card__avatar" aria-hidden="true">LP</div>
+            <h3 class="team-card__name">Lic. Paula Romero</h3>
+            <p class="team-card__role">Drenaje linfático manual y stretching</p>
+            <ul class="team-services">
+              <li>
+                <div class="team-service__head">Drenaje linfático manual</div>
+                <a class="team-service__book" href="https://wa.me/5492644752590?text=Hola%2C%20quiero%20reservar%20Drenaje%20linf%C3%A1tico%20manual%20con%20Lic.%20Paula%20Romero" target="_blank" rel="noopener noreferrer">Reservar ›</a>
+              </li>
+              <li>
+                <div class="team-service__head">Stretching</div>
+                <a class="team-service__book" href="https://wa.me/5492644752590?text=Hola%2C%20quiero%20reservar%20Stretching%20con%20Lic.%20Paula%20Romero" target="_blank" rel="noopener noreferrer">Reservar ›</a>
+              </li>
+            </ul>
           </article>
         </div>
       </div>
@@ -1410,62 +1581,80 @@
     <section id="blog" class="section blog-section">
       <div class="section__inner">
         <p class="section__label reveal">RECURSOS</p>
-        <h2 class="section__title reveal">Blog</h2>
+        <h2 class="section__title reveal">Videos</h2>
         <p class="section__lead reveal">
-          Artículos breves sobre rehabilitación, entrenamiento y hábitos para acompañar tu proceso en PIVOT.
+          Contenido para rehabilitación, entrenamiento y salud en movimiento.
         </p>
         <div class="blog-grid">
           <article class="blog-card reveal">
-            <div class="blog-card__media" aria-hidden="true">
-              <img class="blog-card__logo" src="assets/pivot-logo.png" alt="" width="120" height="36" decoding="async" />
+            <div class="blog-card__media blog-card__media--video">
+              <iframe
+                src="https://www.youtube.com/embed/d5IgQyzmyJ0"
+                title="Video de PIVOT 1"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
             </div>
             <div class="blog-card__body">
               <div class="blog-card__meta">
-                <span class="blog-card__tag">Rehabilitación</span>
-                <time datetime="2026-03-02">2 mar 2026</time>
+                <span class="blog-card__tag">YouTube</span>
               </div>
-              <h3 class="blog-card__title">Volver a correr tras una lesión: qué tener en cuenta</h3>
+              <h3 class="blog-card__title">Video destacado 1</h3>
               <p class="blog-card__excerpt">
-                Progresión de carga, señales de alarma y cómo coordinar kinésica con tu plan de entrenamiento.
+                Miralo en la web o abrilo directo en YouTube.
               </p>
-              <a class="blog-card__link" href="https://instagram.com/pivot.kine" target="_blank" rel="noopener noreferrer">Leer en Instagram</a>
+              <a class="blog-card__link" href="https://youtu.be/d5IgQyzmyJ0" target="_blank" rel="noopener noreferrer">Ver en YouTube</a>
             </div>
           </article>
           <article class="blog-card reveal">
-            <div class="blog-card__media" aria-hidden="true">
-              <img class="blog-card__logo" src="assets/pivot-logo.png" alt="" width="120" height="36" decoding="async" />
+            <div class="blog-card__media blog-card__media--video">
+              <iframe
+                src="https://www.youtube.com/embed/4Qdp0ZzthFE"
+                title="Video de PIVOT 2"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
             </div>
             <div class="blog-card__body">
               <div class="blog-card__meta">
-                <span class="blog-card__tag">Entrenamiento</span>
-                <time datetime="2026-02-18">18 feb 2026</time>
+                <span class="blog-card__tag">YouTube</span>
               </div>
-              <h3 class="blog-card__title">Fuerza y movilidad: por qué no son opuestos</h3>
+              <h3 class="blog-card__title">Video destacado 2</h3>
               <p class="blog-card__excerpt">
-                Cómo integrar rango articular y trabajo de fuerza sin perder rendimiento ni seguridad.
+                Reproducilo desde la página o abrilo en YouTube.
               </p>
-              <a class="blog-card__link" href="https://instagram.com/pivot.kine" target="_blank" rel="noopener noreferrer">Leer en Instagram</a>
+              <a class="blog-card__link" href="https://youtu.be/4Qdp0ZzthFE" target="_blank" rel="noopener noreferrer">Ver en YouTube</a>
             </div>
           </article>
           <article class="blog-card reveal">
-            <div class="blog-card__media" aria-hidden="true">
-              <img class="blog-card__logo" src="assets/pivot-logo.png" alt="" width="120" height="36" decoding="async" />
+            <div class="blog-card__media blog-card__media--video">
+              <iframe
+                src="https://www.youtube.com/embed/0Cgr-waE4wU"
+                title="Video de PIVOT 3"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
             </div>
             <div class="blog-card__body">
               <div class="blog-card__meta">
-                <span class="blog-card__tag">Salud</span>
-                <time datetime="2026-02-05">5 feb 2026</time>
+                <span class="blog-card__tag">YouTube</span>
               </div>
-              <h3 class="blog-card__title">Patologías crónicas y actividad física supervisada</h3>
+              <h3 class="blog-card__title">Video destacado 3</h3>
               <p class="blog-card__excerpt">
-                Beneficios del entrenamiento adaptado y el rol del equipo interdisciplinario.
+                Disponible para ver en la web y en YouTube.
               </p>
-              <a class="blog-card__link" href="https://instagram.com/pivot.kine" target="_blank" rel="noopener noreferrer">Leer en Instagram</a>
+              <a class="blog-card__link" href="https://youtu.be/0Cgr-waE4wU" target="_blank" rel="noopener noreferrer">Ver en YouTube</a>
             </div>
           </article>
         </div>
         <p class="blog-note reveal">
-          Pronto sumaremos notas completas en la web. Mientras tanto, seguinos en <a href="https://instagram.com/pivot.kine" target="_blank" rel="noopener noreferrer">@pivot.kine</a> para tips y novedades.
+          También podés seguirnos en <a href="https://instagram.com/pivot.kine" target="_blank" rel="noopener noreferrer">@pivot.kine</a> para más novedades.
         </p>
       </div>
     </section>
@@ -1475,14 +1664,14 @@
         <p class="section__label reveal">UBICACIÓN</p>
         <h2 class="section__title reveal">Contacto</h2>
         <p class="section__lead reveal">
-          Escribinos por Instagram o WhatsApp. Av. Alem 795 Sur esquina Brasil, San Juan.
+          Escribinos por Instagram o WhatsApp. Av. Alem 795 Sur, esq. Brasil, San Juan, Capital.
         </p>
         <div class="contact-grid">
           <div class="contact-box reveal">
             <h3>Datos</h3>
             <address>
-              Av. Alem 795 Sur, esquina Brasil<br />
-              San Juan, Argentina
+              Av. Alem 795 Sur, esq. Brasil<br />
+              San Juan, Capital
             </address>
             <p style="margin-bottom: 0.75rem;">Consultas y turnos:</p>
             <div class="contact-links">
@@ -1520,7 +1709,7 @@
         <li><a href="#obras-sociales">Obras sociales</a></li>
         <li><a href="#app">App Pivot</a></li>
         <li><a href="#equipo">Equipo</a></li>
-        <li><a href="#blog">Blog</a></li>
+        <li><a href="#blog">Videos</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </div>
