@@ -15,9 +15,11 @@
       --bg-elevated: #111111;
       --text: #ffffff;
       --text-muted: rgba(255, 255, 255, 0.65);
-      /* Marca: negro + blanco + rojo */
-      --accent: #dc2626;
-      --accent-dim: rgba(220, 38, 38, 0.14);
+      /* Marca: negro + blanco + naranja */
+      --accent: #f97316;
+      --accent-hover: #ea580c;
+      --accent-dim: rgba(249, 115, 22, 0.14);
+      --accent-glow: rgba(249, 115, 22, 0.45);
       --border: rgba(255, 255, 255, 0.08);
       --font-display: "Bebas Neue", sans-serif;
       --font-body: "DM Sans", system-ui, sans-serif;
@@ -284,8 +286,8 @@
           -35deg,
           transparent,
           transparent 47px,
-          rgba(220, 38, 38, 0.04) 47px,
-          rgba(220, 38, 38, 0.04) 48px
+          rgba(249, 115, 22, 0.04) 47px,
+          rgba(249, 115, 22, 0.04) 48px
         ),
         repeating-linear-gradient(
           55deg,
@@ -310,7 +312,7 @@
     .hero__gradient {
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 80% 60% at 50% 20%, rgba(220, 38, 38, 0.08), transparent 55%);
+      background: radial-gradient(ellipse 80% 60% at 50% 20%, rgba(249, 115, 22, 0.08), transparent 55%);
       pointer-events: none;
     }
 
@@ -386,7 +388,8 @@
     }
 
     .btn--primary:hover {
-      box-shadow: 0 0 32px rgba(220, 38, 38, 0.45);
+      background: var(--accent-hover);
+      box-shadow: 0 0 32px var(--accent-glow);
       transform: translateY(-2px);
     }
 
@@ -441,7 +444,7 @@
     }
 
     .card:hover {
-      border-color: rgba(220, 38, 38, 0.45);
+      border-color: rgba(249, 115, 22, 0.45);
       box-shadow: 0 0 40px var(--accent-dim), 0 12px 40px rgba(0, 0, 0, 0.4);
       transform: translateY(-4px);
     }
@@ -468,8 +471,8 @@
 
     /* ----- Obras sociales ----- */
     .obras-banner {
-      background: linear-gradient(135deg, rgba(220, 38, 38, 0.08), rgba(220, 38, 38, 0.02));
-      border: 1px solid rgba(220, 38, 38, 0.2);
+      background: linear-gradient(135deg, rgba(249, 115, 22, 0.08), rgba(249, 115, 22, 0.02));
+      border: 1px solid rgba(249, 115, 22, 0.2);
       border-radius: 12px;
       padding: 2rem 2rem 2.25rem;
       margin-bottom: 2rem;
@@ -516,18 +519,51 @@
 
     .plans-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
+      gap: 1.25rem;
       align-items: stretch;
-      padding-top: 1.25rem;
     }
 
-    @media (max-width: 1000px) {
-      .plans-grid {
+    .plans-grid--options {
+      grid-template-columns: repeat(2, 1fr);
+      padding-top: 0.75rem;
+    }
+
+    .plans-grid--combos {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      padding-top: 0.75rem;
+    }
+
+    @media (min-width: 1100px) {
+      .plans-grid--options {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .plans-grid--options {
         grid-template-columns: 1fr;
         max-width: 420px;
-        margin: 0 auto;
+        margin-left: auto;
+        margin-right: auto;
       }
+    }
+
+    .plans-block-label {
+      margin: 2.5rem 0 0;
+    }
+
+    .plans-block-label:first-of-type {
+      margin-top: 0.5rem;
+    }
+
+    .plans-promo-tag {
+      display: inline-block;
+      margin: 0 0 0.5rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
     }
 
     .plan-card {
@@ -542,29 +578,9 @@
     }
 
     .plan-card:hover {
-      border-color: rgba(220, 38, 38, 0.35);
+      border-color: rgba(249, 115, 22, 0.35);
       box-shadow: 0 0 36px var(--accent-dim);
       transform: translateY(-3px);
-    }
-
-    .plan-card--featured {
-      border-color: rgba(220, 38, 38, 0.55);
-      box-shadow: 0 0 48px rgba(220, 38, 38, 0.1);
-    }
-
-    .plan-card__badge {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: var(--accent);
-      color: #ffffff;
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      padding: 0.35rem 0.85rem;
-      border-radius: 999px;
     }
 
     .plan-card__name {
@@ -577,23 +593,37 @@
     .plan-card__pitch {
       color: var(--text-muted);
       font-size: 0.9rem;
-      margin: 0 0 1.25rem;
-      min-height: 2.8em;
+      margin: 0 0 1rem;
+      line-height: 1.55;
     }
 
     .plan-card__price {
       font-family: var(--font-display);
-      font-size: 2.75rem;
+      font-size: 2.25rem;
       letter-spacing: 0.02em;
       line-height: 1;
       color: var(--accent);
-      margin: 0 0 0.25rem;
+      margin: auto 0 0;
+      padding-top: 1rem;
     }
 
     .plan-card__price-note {
       font-size: 0.8rem;
       color: var(--text-muted);
-      margin: 0 0 1.5rem;
+      margin: 0.35rem 0 0;
+    }
+
+    .plan-card--combo .plan-card__name {
+      font-size: 1.35rem;
+    }
+
+    .plan-card__note {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 1rem;
     }
 
     .plan-card__list {
@@ -601,8 +631,6 @@
       margin: 0;
       padding: 0;
       flex: 1;
-      border-top: 1px solid var(--border);
-      padding-top: 1.25rem;
     }
 
     .plan-card__list li {
@@ -627,15 +655,53 @@
       height: 6px;
       border-radius: 1px;
       background: var(--accent);
-      box-shadow: 0 0 10px rgba(220, 38, 38, 0.6);
+      box-shadow: 0 0 10px rgba(249, 115, 22, 0.6);
     }
 
-    .plan-card__cta {
-      margin-top: 1.5rem;
+    .plans-quiz {
+      margin: 2rem 0 2.5rem;
+      padding: 2.25rem 2rem;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(249, 115, 22, 0.12), rgba(249, 115, 22, 0.03));
+      border: 1px solid rgba(249, 115, 22, 0.35);
+      border-radius: 16px;
+      box-shadow: 0 0 48px var(--accent-dim);
     }
 
-    .plan-card__cta .btn {
-      width: 100%;
+    .plans-quiz__title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      letter-spacing: 0.06em;
+      margin: 0 0 0.75rem;
+      line-height: 1.05;
+    }
+
+    .plans-quiz__text {
+      margin: 0 auto 1.5rem;
+      max-width: 36rem;
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    .plans-quiz__steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem 1.25rem;
+      margin: 0 0 1.75rem;
+      padding: 0;
+      list-style: none;
+    }
+
+    .plans-quiz__steps li {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .plans-quiz__steps strong {
+      color: var(--text);
+      font-weight: 600;
     }
 
     .plans-disclaimer {
@@ -643,9 +709,10 @@
       text-align: center;
       font-size: 0.8rem;
       color: var(--text-muted);
-      max-width: 520px;
+      max-width: 40rem;
       margin-left: auto;
       margin-right: auto;
+      line-height: 1.6;
     }
 
     /* ----- App ----- */
@@ -714,7 +781,7 @@
       box-shadow:
         0 0 0 1px rgba(255, 255, 255, 0.06) inset,
         0 24px 60px rgba(0, 0, 0, 0.6),
-        0 0 80px rgba(220, 38, 38, 0.12);
+        0 0 80px rgba(249, 115, 22, 0.12);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -744,7 +811,7 @@
       width: 100%;
       max-width: 148px;
       height: auto;
-      filter: drop-shadow(0 0 28px rgba(220, 38, 38, 0.35));
+      filter: drop-shadow(0 0 28px rgba(249, 115, 22, 0.35));
     }
 
     @media (max-width: 900px) {
@@ -782,7 +849,7 @@
       border-radius: 50%;
       margin: 0 auto 1.25rem;
       background: linear-gradient(145deg, #2a2a2a, #151515);
-      border: 2px solid rgba(220, 38, 38, 0.25);
+      border: 2px solid rgba(249, 115, 22, 0.25);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -836,8 +903,8 @@
       border-radius: 999px;
       font-size: 0.68rem;
       color: var(--accent);
-      border: 1px solid rgba(220, 38, 38, 0.4);
-      background: rgba(220, 38, 38, 0.12);
+      border: 1px solid rgba(249, 115, 22, 0.4);
+      background: rgba(249, 115, 22, 0.12);
       white-space: nowrap;
     }
 
@@ -881,14 +948,14 @@
     }
 
     .blog-card:hover {
-      border-color: rgba(220, 38, 38, 0.35);
+      border-color: rgba(249, 115, 22, 0.35);
       box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45), 0 0 32px var(--accent-dim);
       transform: translateY(-4px);
     }
 
     .blog-card__media {
       height: 140px;
-      background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 50%, rgba(220, 38, 38, 0.08) 100%);
+      background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 50%, rgba(249, 115, 22, 0.08) 100%);
       border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
@@ -1286,7 +1353,7 @@
           Tu <span class="accent">PIVOT.</span>
         </h1>
         <p class="hero__sub">
-          Kinesiología y entrenamiento personalizado en la provincia de San Juan. Protocolos basados en evidencia, seguimiento cercano y foco en tu movimiento funcional y tu rendimiento deportivo.
+          Kinesiología y entrenamiento personalizado en la provincia de San Juan. Protocolos basados en evidencia, seguimiento cercano y foco en tu movimiento funcional.
         </p>
         <div class="hero__cta">
           <a class="btn btn--primary" href="https://wa.me/5492644752590" target="_blank" rel="noopener noreferrer">Contactanos</a>
@@ -1333,60 +1400,112 @@
         <p class="section__label reveal">PROPUESTAS</p>
         <h2 class="section__title reveal">Planes</h2>
         <p class="section__lead reveal">
-          Tres niveles de acompañamiento según tus objetivos, frecuencia de sesiones y seguimiento. Elegí el que mejor se adapte a tu etapa.
+          Actualización mayo 2026. Los valores son referenciales: la modalidad indicada se confirma en evaluación según tu lesión, objetivos y etapa de recuperación.
         </p>
-        <div class="plans-grid">
-          <article class="plan-card reveal">
-            <h3 class="plan-card__name">Plan Esencial</h3>
-            <p class="plan-card__pitch">Base para iniciar tratamiento o mantenimiento con foco en lo prioritario.</p>
-            <p class="plan-card__price">$42.000</p>
-            <p class="plan-card__price-note">por mes · valor referencial</p>
-            <ul class="plan-card__list">
-              <li>4 sesiones kinésicas al mes</li>
-              <li>Evaluación inicial y plan básico</li>
-              <li>Seguimiento por mensaje (respuesta en horario de consulta)</li>
-              <li>Ideal para control puntual o mantenimiento</li>
-            </ul>
-            <div class="plan-card__cta">
-              <a class="btn btn--ghost" href="https://wa.me/5492644752590?text=Hola%2C%20quiero%20info%20sobre%20el%20Plan%20Esencial" target="_blank" rel="noopener noreferrer">Consultar este plan</a>
-            </div>
-          </article>
 
-          <article class="plan-card plan-card--featured reveal">
-            <span class="plan-card__badge">Recomendado</span>
-            <h3 class="plan-card__name">Plan Performance</h3>
-            <p class="plan-card__pitch">Mayor frecuencia y seguimiento para recuperación o preparación deportiva.</p>
-            <p class="plan-card__price">$68.000</p>
-            <p class="plan-card__price-note">por mes · valor referencial</p>
-            <ul class="plan-card__list">
-              <li>8 sesiones al mes (kinésicas y/o entrenamiento)</li>
-              <li>Plan personalizado con reprogramación mensual</li>
-              <li>Acceso a material y pautas en App Pivot</li>
-              <li>Prioridad para reprogramar turnos</li>
-            </ul>
-            <div class="plan-card__cta">
-              <a class="btn btn--primary" href="https://wa.me/5492644752590?text=Hola%2C%20quiero%20info%20sobre%20el%20Plan%20Performance" target="_blank" rel="noopener noreferrer">Consultar este plan</a>
-            </div>
+        <aside id="plan-quiz" class="plans-quiz reveal" aria-labelledby="plans-quiz-title">
+          <h3 id="plans-quiz-title" class="plans-quiz__title">¿Qué plan es para vos?</h3>
+          <p class="plans-quiz__text">
+            Completá el formulario con tu situación actual. Con esa información te orientamos y, en la evaluación presencial, el equipo confirma el plan adecuado para tu recuperación.
+          </p>
+          <ol class="plans-quiz__steps">
+            <li><strong>1.</strong> Completás el formulario</li>
+            <li><strong>2.</strong> Revisamos tu caso</li>
+            <li><strong>3.</strong> Te contactamos con la propuesta indicada</li>
+          </ol>
+          <!-- Reemplazá el href por el enlace de tu Google Form (forms.gle o docs.google.com/forms) -->
+          <a
+            class="btn btn--primary"
+            href="https://forms.gle/REEMPLAZAR_FORMULARIO"
+            target="_blank"
+            rel="noopener noreferrer"
+            id="plan-form-link"
+          >Completar formulario</a>
+        </aside>
+
+        <p class="section__label reveal plans-block-label">OPCIONES INDIVIDUALES</p>
+        <div class="plans-grid plans-grid--options">
+          <article class="plan-card reveal">
+            <h3 class="plan-card__name">Rehabilitación</h3>
+            <p class="plan-card__pitch">Sesión kinésica individual según indicación profesional.</p>
+            <p class="plan-card__price">$20.000</p>
+            <p class="plan-card__price-note">por sesión individual</p>
           </article>
 
           <article class="plan-card reveal">
-            <h3 class="plan-card__name">Plan Salud Extrema</h3>
-            <p class="plan-card__pitch">Acompañamiento completo: rehabilitación, entrenamiento y educación continuos.</p>
-            <p class="plan-card__price">$95.000</p>
-            <p class="plan-card__price-note">por mes · valor referencial</p>
+            <h3 class="plan-card__name">Entrenamiento de fuerza</h3>
+            <p class="plan-card__pitch">Entrenamiento de la fuerza personalizado.</p>
+            <p class="plan-card__price">$43.000</p>
+          </article>
+
+          <article class="plan-card reveal">
+            <h3 class="plan-card__name">Ejercicio adaptado</h3>
+            <p class="plan-card__pitch">Ejercicio adaptado a lesión o patología.</p>
+            <p class="plan-card__price">$60.000</p>
+          </article>
+
+          <article class="plan-card reveal">
+            <h3 class="plan-card__name">Ejercicio terapéutico</h3>
+            <p class="plan-card__pitch">Propuesta terapéutica con seguimiento profesional.</p>
+            <p class="plan-card__price">$70.000</p>
+          </article>
+        </div>
+
+        <p class="section__label reveal plans-block-label">COMBOS PROMOCIONALES</p>
+        <div class="plans-grid plans-grid--combos">
+          <article class="plan-card plan-card--combo reveal">
+            <p class="plans-promo-tag">Combo 1</p>
+            <h3 class="plan-card__name">Electro + adaptado</h3>
             <ul class="plan-card__list">
-              <li>12 sesiones al mes combinadas según indicación</li>
-              <li>Seguimiento estrecho y ajustes semanales</li>
-              <li>Coordinación con objetivos deportivos o laborales</li>
-              <li>Incluye contenido educativo y revisión de progreso</li>
+              <li>Ejercicio adaptado</li>
+              <li>4 sesiones de electroestimulación</li>
             </ul>
-            <div class="plan-card__cta">
-              <a class="btn btn--ghost" href="https://wa.me/5492644752590?text=Hola%2C%20quiero%20info%20sobre%20el%20Plan%20Integral" target="_blank" rel="noopener noreferrer">Consultar este plan</a>
-            </div>
+            <p class="plan-card__price">$70.000</p>
+          </article>
+
+          <article class="plan-card plan-card--combo reveal">
+            <p class="plans-promo-tag">Combo 2</p>
+            <h3 class="plan-card__name">Fuerza + recuperación</h3>
+            <ul class="plan-card__list">
+              <li>Ejercicio de fuerza personalizado</li>
+              <li>4 sesiones de electroestimulación</li>
+              <li>Ventosas + masaje</li>
+            </ul>
+            <p class="plan-card__price">$90.000</p>
+          </article>
+
+          <article class="plan-card plan-card--combo reveal">
+            <p class="plans-promo-tag">Combo 3</p>
+            <h3 class="plan-card__name">Adaptado + rehab</h3>
+            <ul class="plan-card__list">
+              <li>Ejercicio adaptado + rehabilitación</li>
+              <li>4 sesiones en box</li>
+            </ul>
+            <p class="plan-card__price">$100.000</p>
+          </article>
+
+          <article class="plan-card plan-card--combo reveal">
+            <p class="plans-promo-tag">Combo 4</p>
+            <h3 class="plan-card__name">Adaptado + drenaje</h3>
+            <ul class="plan-card__list">
+              <li>Ejercicio adaptado</li>
+              <li>Drenaje linfático: 4 sesiones de 30 min al mes</li>
+            </ul>
+            <p class="plan-card__price">$110.000</p>
+          </article>
+
+          <article class="plan-card plan-card--combo reveal">
+            <p class="plans-promo-tag">Combo 5</p>
+            <h3 class="plan-card__name">Adaptado + stretching</h3>
+            <ul class="plan-card__list">
+              <li>Ejercicio adaptado: 2 clases por semana</li>
+              <li>Stretching: 1 clase por semana</li>
+            </ul>
+            <p class="plan-card__price">$80.000</p>
           </article>
         </div>
         <p class="plans-disclaimer reveal">
-          Los valores son orientativos y pueden variar según cobertura de obra social, tipo de sesión y evaluación profesional. Consultanos por promociones y formas de pago.
+          Valores de referencia — mayo 2026. La opción o combo final se define en evaluación según tu caso y cobertura de obra social. Consultanos por WhatsApp.
         </p>
       </div>
     </section>
