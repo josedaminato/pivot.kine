@@ -853,9 +853,17 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
       font-family: var(--font-display);
       font-size: 1.75rem;
       color: var(--accent);
+    }
+
+    .team-card__avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
     }
 
     .team-card__name {
@@ -1652,7 +1660,9 @@
         </p>
         <div class="team-grid">
           <article class="team-card reveal">
-            <div class="team-card__avatar" aria-hidden="true">LL</div>
+            <div class="team-card__avatar">
+              <img src="assets/team/lucas-felix.jpeg" alt="Lic. Lucas Felix" width="96" height="96" loading="lazy" decoding="async" />
+            </div>
             <h3 class="team-card__name">Lic. Lucas Felix</h3>
             <p class="team-card__role">Rehabilitación deportiva, fisioterapia y terapia manual</p>
             <ul class="team-services">
@@ -1675,7 +1685,9 @@
             </ul>
           </article>
           <article class="team-card reveal">
-            <div class="team-card__avatar" aria-hidden="true">LG</div>
+            <div class="team-card__avatar">
+              <img src="assets/team/guadalupe-oieni.jpeg" alt="Lic. Guadalupe Oieni" width="96" height="96" loading="lazy" decoding="async" />
+            </div>
             <h3 class="team-card__name">Lic. Guadalupe Oieni</h3>
             <p class="team-card__role">Rehabilitación kinésica, ejercicio adaptado y recuperación muscular</p>
             <ul class="team-services">
@@ -1698,7 +1710,9 @@
             </ul>
           </article>
           <article class="team-card reveal">
-            <div class="team-card__avatar" aria-hidden="true">LM</div>
+            <div class="team-card__avatar">
+              <img src="assets/team/matias-frola.jpeg" alt="Lic. Matias Frola" width="96" height="96" loading="lazy" decoding="async" />
+            </div>
             <h3 class="team-card__name">Lic. Matias Frola</h3>
             <p class="team-card__role">Rehabilitación integral y neurorehabilitación</p>
             <ul class="team-services">
