@@ -597,22 +597,6 @@
       line-height: 1.55;
     }
 
-    .plan-card__price {
-      font-family: var(--font-display);
-      font-size: 2.25rem;
-      letter-spacing: 0.02em;
-      line-height: 1;
-      color: var(--accent);
-      margin: auto 0 0;
-      padding-top: 1rem;
-    }
-
-    .plan-card__price-note {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin: 0.35rem 0 0;
-    }
-
     .plan-card--combo .plan-card__name {
       font-size: 1.35rem;
     }
@@ -1068,6 +1052,146 @@
       font-weight: 600;
     }
 
+    /* ----- Libros ----- */
+    .books-section {
+      border-top: 1px solid var(--border);
+    }
+
+    .books-hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.25rem;
+      padding: 2.5rem 2rem;
+      margin-bottom: 2.5rem;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    .books-hero__icon {
+      font-size: 2.75rem;
+      line-height: 1;
+    }
+
+    .books-hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 4vw, 2.25rem);
+      letter-spacing: 0.05em;
+      margin: 0;
+    }
+
+    .books-hero__text {
+      max-width: 36rem;
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .books-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .book-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.3s ease, box-shadow 0.35s var(--ease-out), transform 0.3s var(--ease-out);
+    }
+
+    .book-card:hover {
+      border-color: rgba(249, 115, 22, 0.35);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45), 0 0 32px var(--accent-dim);
+      transform: translateY(-4px);
+    }
+
+    .book-card__cover {
+      height: 160px;
+      background: linear-gradient(145deg, #1a1a1a 0%, #111 45%, rgba(249, 115, 22, 0.12) 100%);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+
+    .book-card__body {
+      padding: 1.5rem 1.5rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .book-card__tag {
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.65rem;
+    }
+
+    .book-card__title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+      margin: 0 0 0.65rem;
+    }
+
+    .book-card__excerpt {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin: 0 0 1.25rem;
+      flex: 1;
+    }
+
+    .book-card__link {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--accent);
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: opacity 0.2s;
+    }
+
+    .book-card__link::after {
+      content: "→";
+      transition: transform 0.25s var(--ease-out);
+    }
+
+    .book-card__link:hover::after {
+      transform: translateX(4px);
+    }
+
+    .books-note {
+      margin: 2rem 0 0;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .books-note a {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
     /* ----- Contact / Map ----- */
     .contact-grid {
       display: grid;
@@ -1344,7 +1468,8 @@
           <li><a href="#obras-sociales">Obras sociales</a></li>
           <li><a href="#app">App</a></li>
           <li><a href="#equipo">Equipo</a></li>
-          <li><a href="#blog">Blog</a></li>
+          <li><a href="#blog">Videos</a></li>
+          <li><a href="#libros">Libros</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
       </nav>
@@ -1442,7 +1567,7 @@
         <p class="section__label reveal">PROPUESTAS</p>
         <h2 class="section__title reveal">Planes</h2>
         <p class="section__lead reveal">
-          Actualización mayo 2026. Los valores son referenciales: la modalidad indicada se confirma en evaluación según tu lesión, objetivos y etapa de recuperación.
+          La modalidad indicada se confirma en evaluación según tu lesión, objetivos y etapa de recuperación.
         </p>
 
         <aside id="plan-quiz" class="plans-quiz reveal" aria-labelledby="plans-quiz-title">
@@ -1455,10 +1580,9 @@
             <li><strong>2.</strong> Revisamos tu caso</li>
             <li><strong>3.</strong> Te contactamos con la propuesta indicada</li>
           </ol>
-          <!-- Reemplazá el href por el enlace de tu Google Form (forms.gle o docs.google.com/forms) -->
           <a
             class="btn btn--primary"
-            href="https://docs.google.com/forms/d/1PmAW5mgMAn1qahbyw3QRXdpB54EG9k8ZtEtxb7TX8dE/viewform"
+            href="https://forms.gle/dQYJxv3SQxTEA23x9"
             target="_blank"
             rel="noopener noreferrer"
             id="plan-form-link"
@@ -1470,26 +1594,21 @@
           <article class="plan-card reveal">
             <h3 class="plan-card__name">Rehabilitación</h3>
             <p class="plan-card__pitch">Sesión kinésica individual según indicación profesional.</p>
-            <p class="plan-card__price">$20.000</p>
-            <p class="plan-card__price-note">por sesión individual</p>
           </article>
 
           <article class="plan-card reveal">
             <h3 class="plan-card__name">Entrenamiento de fuerza</h3>
             <p class="plan-card__pitch">Entrenamiento de la fuerza personalizado.</p>
-            <p class="plan-card__price">$43.000</p>
           </article>
 
           <article class="plan-card reveal">
             <h3 class="plan-card__name">Ejercicio adaptado</h3>
             <p class="plan-card__pitch">Ejercicio adaptado a lesión o patología.</p>
-            <p class="plan-card__price">$60.000</p>
           </article>
 
           <article class="plan-card reveal">
             <h3 class="plan-card__name">Ejercicio terapéutico</h3>
             <p class="plan-card__pitch">Propuesta terapéutica con seguimiento profesional.</p>
-            <p class="plan-card__price">$70.000</p>
           </article>
         </div>
 
@@ -1502,7 +1621,6 @@
               <li>Ejercicio adaptado</li>
               <li>4 sesiones de electroestimulación</li>
             </ul>
-            <p class="plan-card__price">$70.000</p>
           </article>
 
           <article class="plan-card plan-card--combo reveal">
@@ -1513,7 +1631,6 @@
               <li>4 sesiones de electroestimulación</li>
               <li>Ventosas + masaje</li>
             </ul>
-            <p class="plan-card__price">$90.000</p>
           </article>
 
           <article class="plan-card plan-card--combo reveal">
@@ -1523,7 +1640,6 @@
               <li>Ejercicio adaptado + rehabilitación</li>
               <li>4 sesiones en box</li>
             </ul>
-            <p class="plan-card__price">$100.000</p>
           </article>
 
           <article class="plan-card plan-card--combo reveal">
@@ -1533,7 +1649,6 @@
               <li>Ejercicio adaptado</li>
               <li>Drenaje linfático: 4 sesiones de 30 min al mes</li>
             </ul>
-            <p class="plan-card__price">$110.000</p>
           </article>
 
           <article class="plan-card plan-card--combo reveal">
@@ -1543,11 +1658,10 @@
               <li>Ejercicio adaptado: 2 clases por semana</li>
               <li>Stretching: 1 clase por semana</li>
             </ul>
-            <p class="plan-card__price">$80.000</p>
           </article>
         </div>
         <p class="plans-disclaimer reveal">
-          Valores de referencia — mayo 2026. La opción o combo final se define en evaluación según tu caso y cobertura de obra social. Consultanos por WhatsApp.
+          La opción o combo final se define en evaluación según tu caso y cobertura de obra social. Consultanos por WhatsApp para conocer valores actualizados.
         </p>
       </div>
     </section>
@@ -1735,17 +1849,25 @@
             </ul>
           </article>
           <article class="team-card reveal">
-            <div class="team-card__avatar" aria-hidden="true">LP</div>
-            <h3 class="team-card__name">Lic. Paula Romero</h3>
-            <p class="team-card__role">Drenaje linfático manual y stretching</p>
+            <div class="team-card__avatar" aria-hidden="true">FB</div>
+            <h3 class="team-card__name">Lic. Franco Barea</h3>
+            <p class="team-card__role">Rehabilitación traumatológica, readaptación deportiva, rehabilitación respiratoria y adulto mayor</p>
             <ul class="team-services">
               <li>
-                <div class="team-service__head">Drenaje linfático manual</div>
-                <a class="team-service__book" href="https://wa.me/5492644752590?text=Hola%2C%20quiero%20reservar%20Drenaje%20linf%C3%A1tico%20manual%20con%20Lic.%20Paula%20Romero" target="_blank" rel="noopener noreferrer">Reservar ›</a>
+                <div class="team-service__head">Rehabilitación traumatológica</div>
+                <a class="team-service__book" href="https://wa.me/5492644752590?text=Hola%2C%20quiero%20reservar%20Rehabilitaci%C3%B3n%20traumatol%C3%B3gica%20con%20Lic.%20Franco%20Barea" target="_blank" rel="noopener noreferrer">Reservar ›</a>
               </li>
               <li>
-                <div class="team-service__head">Stretching</div>
-                <a class="team-service__book" href="https://wa.me/5492644752590?text=Hola%2C%20quiero%20reservar%20Stretching%20con%20Lic.%20Paula%20Romero" target="_blank" rel="noopener noreferrer">Reservar ›</a>
+                <div class="team-service__head">Readaptación deportiva</div>
+                <a class="team-service__book" href="https://wa.me/5492644752590?text=Hola%2C%20quiero%20reservar%20Readaptaci%C3%B3n%20deportiva%20con%20Lic.%20Franco%20Barea" target="_blank" rel="noopener noreferrer">Reservar ›</a>
+              </li>
+              <li>
+                <div class="team-service__head">Rehabilitación respiratoria</div>
+                <a class="team-service__book" href="https://wa.me/5492644752590?text=Hola%2C%20quiero%20reservar%20Rehabilitaci%C3%B3n%20respiratoria%20con%20Lic.%20Franco%20Barea" target="_blank" rel="noopener noreferrer">Reservar ›</a>
+              </li>
+              <li>
+                <div class="team-service__head">Adulto mayor</div>
+                <a class="team-service__book" href="https://wa.me/5492644752590?text=Hola%2C%20quiero%20reservar%20Adulto%20mayor%20con%20Lic.%20Franco%20Barea" target="_blank" rel="noopener noreferrer">Reservar ›</a>
               </li>
             </ul>
           </article>
@@ -1850,6 +1972,59 @@
       </div>
     </section>
 
+    <section id="libros" class="section books-section">
+      <div class="section__inner">
+        <p class="section__label reveal">RECURSOS</p>
+        <h2 class="section__title reveal">Libros</h2>
+        <p class="section__lead reveal">
+          Material de lectura recomendado por el equipo: guías, protocolos y recursos para pacientes y profesionales.
+        </p>
+
+        <!--
+          Biblioteca en Google Drive:
+          1. Creá una carpeta en Drive y subí los PDFs.
+          2. Clic derecho → Compartir → "Cualquier persona con el enlace" (lector).
+          3. Copiá el enlace y reemplazá el href de abajo.
+        -->
+        <div class="books-hero reveal">
+          <span class="books-hero__icon" aria-hidden="true">📚</span>
+          <h3 class="books-hero__title">Biblioteca PIVOT</h3>
+          <p class="books-hero__text">
+            Accedé a todos los libros y documentos desde nuestra biblioteca en Google Drive. Podés leerlos online o descargarlos desde tu celular o computadora.
+          </p>
+          <a
+            class="btn btn--primary"
+            href="https://drive.google.com/drive/folders/17n4Pl6nOAGt-yECU6vP5XHswZFKmL1z6?usp=drive_link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Abrir biblioteca en Drive</a>
+        </div>
+
+        <!--
+          Libros individuales (opcional):
+          Por cada PDF en Drive, usá "Obtener enlace" y pegalo en book-card__link.
+          Formato: https://drive.google.com/file/d/ID_DEL_ARCHIVO/view?usp=sharing
+        -->
+        <div class="books-grid">
+          <!--
+          <article class="book-card reveal">
+            <div class="book-card__cover" aria-hidden="true">📖</div>
+            <div class="book-card__body">
+              <span class="book-card__tag">Rehabilitación</span>
+              <h3 class="book-card__title">Título del libro</h3>
+              <p class="book-card__excerpt">Breve descripción del contenido.</p>
+              <a class="book-card__link" href="https://drive.google.com/file/d/ID_DEL_ARCHIVO/view?usp=sharing" target="_blank" rel="noopener noreferrer">Leer / descargar</a>
+            </div>
+          </article>
+          -->
+        </div>
+
+        <p class="books-note reveal">
+          ¿Tenés sugerencias de lectura? Escribinos por <a href="https://wa.me/5492644752590" target="_blank" rel="noopener noreferrer">WhatsApp</a>.
+        </p>
+      </div>
+    </section>
+
     <section id="contacto" class="section services">
       <div class="section__inner">
         <p class="section__label reveal">UBICACIÓN</p>
@@ -1901,6 +2076,7 @@
         <li><a href="#app">App Pivot</a></li>
         <li><a href="#equipo">Equipo</a></li>
         <li><a href="#blog">Videos</a></li>
+        <li><a href="#libros">Libros</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </div>
