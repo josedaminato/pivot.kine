@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="PIVOT Kinesiología — Rehabilitación kinésica y entrenamiento personalizado en San Juan. Av. Alem 795 Sur esq. Brasil." />
+  <meta name="description" content="PIVOT Kinesiología — Recuperación, rendimiento y calidad de vida. Kinesiología y ejercicio terapéutico en San Juan." />
   <title>PIVOT Kinesiología | San Juan</title>
   <link rel="icon" href="assets/pivot-logo.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -1192,6 +1192,75 @@
       font-weight: 600;
     }
 
+    /* ----- FAQ ----- */
+    .faq-section {
+      background: var(--bg-elevated);
+      border-top: 1px solid var(--border);
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.25s ease;
+    }
+
+    .faq-item[open] {
+      border-color: rgba(249, 115, 22, 0.35);
+    }
+
+    .faq-item__question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.15rem 1.35rem;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      line-height: 1.45;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .faq-item__question::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item__question::after {
+      content: "+";
+      flex-shrink: 0;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      line-height: 1;
+      color: var(--accent);
+      transition: transform 0.25s var(--ease-out);
+    }
+
+    .faq-item[open] .faq-item__question::after {
+      transform: rotate(45deg);
+    }
+
+    .faq-item__answer {
+      padding: 0 1.35rem 1.25rem;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+
+    .faq-item__answer p {
+      margin: 0;
+    }
+
     /* ----- Contact / Map ----- */
     .contact-grid {
       display: grid;
@@ -1471,6 +1540,7 @@
           <li><a href="#blog">Videos</a></li>
           <li><a href="#libros">Libros</a></li>
           <li><a href="#indumentaria">Indumentaria</a></li>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
       </nav>
@@ -1483,12 +1553,12 @@
       <div class="hero__gradient" aria-hidden="true"></div>
       <div class="hero__content">
         <h1 class="hero__title">
-          Tu recuperación.<br />
-          Tu rendimiento.<br />
-          Tu <span class="accent">PIVOT.</span>
+          Recuperación.<br />
+          Rendimiento.<br />
+          <span class="accent">Calidad de vida.</span>
         </h1>
         <p class="hero__sub">
-          Kinesiología y entrenamiento personalizado en la provincia de San Juan. Protocolos basados en evidencia, seguimiento cercano y foco en tu movimiento funcional.
+          Kinesiología y ejercicio terapéutico en la ciudad de San Juan. Protocolos basados en evidencia, seguimiento continuo y foco en tu movimiento funcional.
         </p>
         <div class="hero__cta">
           <a class="btn btn--primary" href="https://wa.me/5492644752590" target="_blank" rel="noopener noreferrer">Contactanos</a>
@@ -1502,7 +1572,7 @@
         <p class="section__label reveal">PIVOT</p>
         <h2 class="section__title reveal">Quiénes somos</h2>
         <p class="section__lead reveal">
-          Prevención, rehabilitación y ejercicio terapéutico centrados en la persona, con atención profesional, cercanía humana y herramientas basadas en evidencia.
+          Prevención, rehabilitación y readaptación funcional centrados en la persona, con atención profesional, cercanía humana y herramientas basadas en evidencia.
         </p>
         <div class="cards">
           <article class="card reveal">
@@ -1547,7 +1617,7 @@
           </article>
           <article class="card reveal">
             <div class="card__icon" aria-hidden="true">💪</div>
-            <h3 class="card__title">Entrenamiento Personalizado</h3>
+            <h3 class="card__title">Entrenamiento de la fuerza</h3>
             <p class="card__text">
               Planificación individual según tu historia, tus metas y tu disponibilidad. Seguimiento y ajustes continuos.
             </p>
@@ -1640,6 +1710,16 @@
             <ul class="plan-card__list">
               <li>Ejercicio adaptado</li>
               <li>Rehabilitación (4 sesiones al mes)</li>
+            </ul>
+          </article>
+
+          <article class="plan-card plan-card--combo reveal">
+            <p class="plans-promo-tag">Combo</p>
+            <h3 class="plan-card__name">Adulto mayor integral</h3>
+            <ul class="plan-card__list">
+              <li>Psicomotricidad</li>
+              <li>Estimulación neurocognitiva</li>
+              <li>Ejercicio adaptado</li>
             </ul>
           </article>
         </div>
@@ -2036,6 +2116,36 @@
       </div>
     </section>
 
+    <section id="faq" class="section faq-section">
+      <div class="section__inner">
+        <p class="section__label reveal">AYUDA</p>
+        <h2 class="section__title reveal">Preguntas frecuentes</h2>
+        <p class="section__lead reveal">
+          Respuestas a las consultas más comunes sobre asistencia, ejercicio con dolor y formas de pago.
+        </p>
+        <div class="faq-list">
+          <details class="faq-item reveal">
+            <summary class="faq-item__question">¿Cuántos días a la semana puedo asistir?</summary>
+            <div class="faq-item__answer">
+              <p>2 o 3 veces por semana; varía el precio.</p>
+            </div>
+          </details>
+          <details class="faq-item reveal">
+            <summary class="faq-item__question">¿Si tengo dolor puedo hacer ejercicio de fuerza?</summary>
+            <div class="faq-item__answer">
+              <p>Claro que sí: siempre vamos a ir avanzando de forma progresiva, respetando tus tiempos y cumpliendo la regla del no dolor.</p>
+            </div>
+          </details>
+          <details class="faq-item reveal">
+            <summary class="faq-item__question">¿Puedo comenzar a mitad de mes?</summary>
+            <div class="faq-item__answer">
+              <p>Sí, claro: solo abonás medio mes y actualizás el pago completo del 1 al 10 el mes siguiente.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <section id="contacto" class="section services">
       <div class="section__inner">
         <p class="section__label reveal">UBICACIÓN</p>
@@ -2077,7 +2187,7 @@
           <img class="footer__logo-img" src="assets/pivot-logo.png" alt="" width="140" height="40" decoding="async" />
         </p>
         <p class="footer__brand-accent">Kinesiología</p>
-        <p class="footer__tagline">Kinesiología y entrenamiento personalizado. San Juan, Argentina.</p>
+        <p class="footer__tagline">Kinesiología y ejercicio terapéutico. San Juan, Argentina.</p>
       </div>
       <ul class="footer__nav">
         <li><a href="#inicio">Inicio</a></li>
@@ -2089,6 +2199,7 @@
         <li><a href="#blog">Videos</a></li>
         <li><a href="#libros">Libros</a></li>
         <li><a href="#indumentaria">Indumentaria</a></li>
+        <li><a href="#faq">Preguntas frecuentes</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </div>
