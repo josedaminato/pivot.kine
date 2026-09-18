@@ -1,0 +1,21 @@
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html?)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+  AddType image/jpeg .jpg .jpeg
+  AddType image/png .png
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+</IfModule>
